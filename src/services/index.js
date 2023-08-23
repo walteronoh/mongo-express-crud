@@ -4,8 +4,9 @@ const getUsers = async () => {
     return await User.find();
 }
 
-const addUser = (data) => {
-
+const addUser = async (data) => {
+    const user = new User(data);
+    return await user.save();
 }
 
 const updateUser = (data) => {

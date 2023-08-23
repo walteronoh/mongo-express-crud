@@ -1,5 +1,5 @@
 const express = require('express');
-const { getUsers } = require('../controllers');
+const { getUsers, addUser } = require('../controllers');
 const router = express.Router();
 
 const rootUrl = "/api";
@@ -8,9 +8,7 @@ const url = rootUrl + versionUrl;
 
 router.get(url, getUsers);
 
-router.post(url, (req, res) => {
-    res.send('Crud POST home page')
-});
+router.post(url, addUser);
 
 router.put(url, (req, res) => {
     res.send('Crud PUT home page')
