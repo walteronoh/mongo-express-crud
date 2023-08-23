@@ -20,6 +20,26 @@ const addUser = (req, res) => {
         });
 }
 
+const updateUser = (req, res) => {
+    userService.updateUser(req.params.id, req.body)
+        .then((response) => {
+            return res.status(201).json(response);
+        })
+        .catch((err) => {
+            return res.status(400).json(err);
+        });
+}
+
+const deleteUser = (req, res) => {
+    userService.deleteUser(req.params.id)
+        .then((response) => {
+            return res.status(201).json(response);
+        })
+        .catch((err) => {
+            return res.status(400).json(err);
+        });
+}
+
 module.exports = {
-    getUsers, addUser
+    getUsers, addUser, updateUser, deleteUser
 }

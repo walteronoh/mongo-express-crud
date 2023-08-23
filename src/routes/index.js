@@ -1,5 +1,5 @@
 const express = require('express');
-const { getUsers, addUser } = require('../controllers');
+const { getUsers, addUser, updateUser, deleteUser } = require('../controllers');
 const router = express.Router();
 
 const rootUrl = "/api";
@@ -10,12 +10,8 @@ router.get(url, getUsers);
 
 router.post(url, addUser);
 
-router.put(url, (req, res) => {
-    res.send('Crud PUT home page')
-});
+router.put(`${url}:id`, updateUser);
 
-router.delete(url, (req, res) => {
-    res.send('Crud DELETE home page')
-});
+router.delete(`${url}:id`, deleteUser);
 
 module.exports = router;

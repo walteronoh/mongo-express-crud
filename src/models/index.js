@@ -18,6 +18,11 @@ const userSchema = mongoose.Schema({
     location: {
         type: String,
         required: [true, "Location is required!"]
+    },
+    email: {
+        type: String,
+        required: [true, "Email is required!"],
+        unique: true
     }
 });
 

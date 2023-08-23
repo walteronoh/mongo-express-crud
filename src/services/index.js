@@ -9,12 +9,14 @@ const addUser = async (data) => {
     return await user.save();
 }
 
-const updateUser = (data) => {
-
+const updateUser = async (id,data) => {
+    const user = await User.findById(id);
+    Object.assign(user, data);
+    return await user.save();
 }
 
-const deleteUser = (id) => {
-
+const deleteUser = async (id) => {
+    return await User.findByIdAndRemove(id);
 }
 
 module.exports = {
